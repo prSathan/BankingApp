@@ -1,12 +1,10 @@
 Bank Tech Test
 =================
 
-## Functions of the program
+### Functions of the program
 - Make a deposit
 - Make a withdrawal
 - Print an account statement with: date, amount, balance
-- Landing is prevented when airport capacity is full
-- Airport capacity can be changed as appropriate
 
 ### Methodologies
 - Test Driven Development
