@@ -1,17 +1,31 @@
+require_relative 'transaction'
+
 class Account
 
-attr_reader :balance
+  attr_reader :balance, :print, :transactions
 
   def initialize
     @balance = 0
   end
 
   def deposit(amount)
-    @balance += amount
+    debit_transaction(amount)
+    Transaction.new(Time.now.strftime("%d/%m/%y"), amount, @balance)
   end
 
   def withdraw(amount)
-    @balance -= amount
+    credit_transaction(-amount)
+    Transaction.new(Time.now.strftime("%d/%m/%y"), -amount, @balance)
+  end
+
+  private
+
+  def debit_transaction(amount)
+    @balance += amount
+  end
+
+  def credit_transaction(amount)
+    @balance += amount
   end
 
 end
